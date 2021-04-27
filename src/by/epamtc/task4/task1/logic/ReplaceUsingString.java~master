@@ -14,13 +14,14 @@ public class ReplaceUsingString implements Replace {
         StringBuilder sb = new StringBuilder();
         for (String word : StringUtility.split(s, StringReplacement.splitSymbol)) { // так как в методе сплит импользуется регекс, то я
             //написала собственный
-            if (word.length() >= pos) {
-                sb.append(word, 0, pos - 1).append((replaceSymbol)).append(word.substring(pos));
-            } else {
-                sb.append(word);
+            if (word != null) {
+                if (word.length() >= pos) {
+                    sb.append(word, 0, pos - 1).append((replaceSymbol)).append(word.substring(pos));
+                } else {
+                    sb.append(word);
+                }
+                sb.append(" ");
             }
-            sb.append(" ");
-
         }
         return sb.toString();
     }

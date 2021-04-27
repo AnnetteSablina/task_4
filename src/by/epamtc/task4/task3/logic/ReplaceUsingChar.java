@@ -16,14 +16,13 @@ public class ReplaceUsingChar implements Replace {
         List<String> replacedString = new ArrayList<>();
 
         for (String word : StringUtility.split(s, StringReplacement.splitSymbol)) {
-            if (word != null) {
-                if (word.length() == wordLen) {
-                    replacedString.add(replaceString);
+            if (word.length() == wordLen) {
+                replacedString.add(replaceString);
 
-                } else {
-                    replacedString.add(word);
-                }
+            } else {
+                replacedString.add(word);
             }
+
 
         }
 

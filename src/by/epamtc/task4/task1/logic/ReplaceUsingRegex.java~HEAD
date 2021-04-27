@@ -1,0 +1,29 @@
+package by.epamtc.task4.task1.logic;
+
+import by.epamtc.task4.task1.logic.Replace;
+import by.epamtc.task4.utility.exception.InvalidPosValue;
+import by.epamtc.task4.utility.exception.NullException;
+
+public class ReplaceUsingRegex implements Replace {
+
+    @Override
+    public String replace(String s, int pos, char replaceWord) throws InvalidPosValue, NullException {
+        if (s == null) throw new NullException("String is null");
+        if (pos < 0) throw new InvalidPosValue(" Invalid position");
+        if (s.isEmpty()) return s;
+        String pattern = ("([a-zA-Z]{" + (pos - 1) + ("})([a-zA-Z])(a-zA-Z)*"));
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String word : s.split("\\s* |([:;,!.?])")) {
+            if (word.length() >= pos) {
+<<<<<<< HEAD:src/by/epamtc/task4/task1/logic/ReplaceUsingRegex.java
+                stringBuilder.append(word.replaceAll(pattern, "$1" + replaceWord + "$3")).append(" ");
+=======
+                String end = word.substring(pos);
+                stringBuilder.append(word.replaceAll(word.substring(pos - 1),
+                        String.valueOf(replaceWord))).append(end).append(" ");
+>>>>>>> master:src/by/epamtc/task4/task1/ReplaceUsingRegex.java
+            } else stringBuilder.append(word).append(" ");
+        }
+        return stringBuilder.toString();
+    }
+}

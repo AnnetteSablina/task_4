@@ -15,11 +15,8 @@ public class ReplaceUsingString implements Replace {
         if (wordLen < 0) throw new InvalidLenException("Length is invalid");
         StringBuilder res = new StringBuilder();
         for (String word : StringUtility.split(s, StringReplacement.splitSymbol)) {
-            if (word != null) {
                 word = rep(word, wordLen);
                 res.append(word).append(" ");
-            }
-
         }
         return res.toString();
     }

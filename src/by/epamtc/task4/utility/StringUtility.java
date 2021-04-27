@@ -9,9 +9,9 @@ public class StringUtility {
         String[] splitString = new String[s.length()];
 
         for (int i = 0; i < s.length(); i++) {
-            int k =i;
+            int k = i;
             if (i == s.length() - 1) {
-                splitString[j] = StringUtility.substring(s.toCharArray(), first, i+1);
+                splitString[j] = StringUtility.substring(s.toCharArray(), first, i + 1);
             }
             for (char sp : split) {
                 if (s.charAt(i) == sp && s.charAt(++k) != sp) {
@@ -22,7 +22,7 @@ public class StringUtility {
             }
 
         }
-
+        splitString = deleteNull(splitString);
         return splitString;
     }
 
@@ -53,6 +53,24 @@ public class StringUtility {
             beginIndex++;
         }
         return subArray;
+    }
+
+    private static String[] deleteNull(String[] splitString) {
+        int index = 0;
+        String[] newSplitString = new String[countNotNull(splitString)];
+        for (String str : splitString) {
+            if (str != null) newSplitString[index] = str;
+            index++;
+        }
+        return  newSplitString;
+    }
+
+    private static int countNotNull(String[] splitString) {
+        int size = 0;
+        for (String str : splitString) {
+            if (str != null) size++;
+        }
+        return size;
     }
 
 }

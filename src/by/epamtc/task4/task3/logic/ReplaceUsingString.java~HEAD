@@ -16,13 +16,14 @@ public class ReplaceUsingString implements Replace {
         StringBuilder sb = new StringBuilder();
         for (String word : StringUtility.split(s, StringReplacement.splitSymbol)) { // так как в методе сплит импользуется регекс, то я
             //написала собственный
-            if (word.length() == wordLen) {
-                sb.append(replaceString);
-            } else {
-                sb.append(word);
+            if (word != null) {
+                if (word.length() == wordLen) {
+                    sb.append(replaceString);
+                } else {
+                    sb.append(word);
+                }
+                sb.append(" ");
             }
-            sb.append(" ");
-
         }
         return sb.toString();
     }

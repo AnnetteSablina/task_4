@@ -12,15 +12,13 @@ public class ReplaceUsingChar implements Replace {
         if (wordLen < 0) throw new InvalidLenException("Length is invalid");
         StringBuilder res = new StringBuilder();
         for (String word : StringUtility.split(s, StringReplacement.splitSymbol)) {
-            if (word != null) {
-                if (!isNeedDelete(word,wordLen))
-                    res.append(word).append(" ");
-            }
-
+            if (!isNeedDelete(word, wordLen))
+                res.append(word).append(" ");
         }
         return res.toString();
     }
-    private static boolean isNeedDelete (String word,int wordLen){
+
+    private static boolean isNeedDelete(String word, int wordLen) {
         return (Symbol.isConsonant(word.charAt(0)) && word.length() == wordLen);
     }
 }

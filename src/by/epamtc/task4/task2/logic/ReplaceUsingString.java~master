@@ -12,8 +12,10 @@ public class ReplaceUsingString implements Replace {
         if (s.isEmpty()) return s;
         StringBuilder stringBuilder = new StringBuilder();
         for (String word : StringUtility.split(s, StringReplacement.splitSymbol)) {
-            if (!(isWasReplaced(stringBuilder, word, replaceSymbol)))
-                stringBuilder.append(word).append(" ");
+            if (word != null) {
+                if (!(isWasReplaced(stringBuilder, word, replaceSymbol)))
+                    stringBuilder.append(word).append(" ");
+            }
         }
         return stringBuilder.toString();
     }

@@ -16,7 +16,9 @@ public class ReplaceUsingChar implements Replace {
         if (s.isEmpty()) return s;
         List<String> replacedString = new ArrayList<>();
         for (String word : StringUtility.split(s, StringReplacement.splitSymbol)) {
+            if (word != null) {
                 replacedString.add(replaceSymbol(word,replaceSymbol));
+            }
         }
         return replacedString.toString();
     }
