@@ -8,8 +8,8 @@ public class ReplaceUsingRegex implements Replace {
 
     @Override
     public String replace(String s, char replaceSymbol) throws InvalidPosValue {
-        var pattern = String.format("(%ca)", replaceSymbol);
-        var res = Pattern.compile(pattern, Pattern.CASE_INSENSITIVE).matcher(s).
+        String pattern = String.format("(%ca)", replaceSymbol);
+        String res = Pattern.compile(pattern, Pattern.CASE_INSENSITIVE).matcher(s).
                 replaceAll(String.format("%co",replaceSymbol));
         return res;
     }

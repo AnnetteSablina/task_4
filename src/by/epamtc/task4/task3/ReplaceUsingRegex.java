@@ -7,16 +7,7 @@ public class ReplaceUsingRegex implements Replace {
 
     @Override
     public String replace(String s, int wordLen, String replaceString) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (String word : s.split("\\s* |([:;,!.?])")) {
-            if (word.length() == wordLen) {
-                stringBuilder.append(word.replaceAll("\\b(\\w+?)\\b",
-                        String.valueOf(replaceString))).append(" ");
-            } else stringBuilder.append(word).append(" ");
-        }
-        //var res = Pattern.compile(String.format("([\\s:;,!.?])(\\w{%d})([\\s:;,!.?])",wordLen), Pattern.CASE_INSENSITIVE).matcher(s).replaceAll(replaceString);
-
-        return stringBuilder.toString();
+        return s.replaceAll("\\b[a-zA-Z]{" + wordLen + "}\\b",replaceString);
     }
 }
 

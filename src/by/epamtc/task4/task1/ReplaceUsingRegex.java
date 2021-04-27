@@ -7,7 +7,7 @@ public class ReplaceUsingRegex implements Replace {
         StringBuilder stringBuilder = new StringBuilder();
         for (String word : s.split("\\s* |([:;,!.?])")) {
             if (word.length() >= pos) {
-                String end = word.substring(pos, word.length());
+                String end = word.substring(pos);
                 stringBuilder.append(word.replaceAll(word.substring(pos - 1),
                         String.valueOf(replaceWord))).append(end).append(" ");
             } else stringBuilder.append(word).append(" ");
